@@ -26,7 +26,7 @@ public class Cliente implements Serializable {
 	
 	private String nombre;
 	private String apellido;
-	private String correo;
+	private String email;
 	
 	@Column(name="create_at")//esta anotacion se pone solo si el nombre del campo es diferente al nombre del atributo
 	@Temporal(TemporalType.DATE)//convierte el formato Date al formato propio de la base de datos a utilizar
@@ -49,11 +49,12 @@ public class Cliente implements Serializable {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public String getCorreo() {
-		return correo;
+	
+	public String getEmail() {
+		return email;
 	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Date getCreateAt() {
 		return createAt;
