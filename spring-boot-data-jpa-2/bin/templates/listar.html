@@ -3,10 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <title th:text="${titulo}">Your title</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
-	<h1 th:text="${titulo}"></h1>
-	<table>
+
+<nav class="nav">
+  <a class="nav-link active" href="#">Active</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="#" th:href="@{/listar}">Cliente</a>
+</nav>
+
+<div class="container">
+	<h1 class="text-secondary" th:text="${titulo}"></h1>
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -26,5 +36,6 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 </body>
 </html>
