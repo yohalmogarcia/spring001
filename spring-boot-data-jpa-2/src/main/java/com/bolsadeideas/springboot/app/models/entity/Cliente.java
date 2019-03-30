@@ -8,10 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 //clase entidad que esta mapeada directamente a la tabla de la base de datos
 
@@ -31,12 +32,9 @@ public class Cliente implements Serializable {
 	
 	@Column(name="create_at")//esta anotacion se pone solo si el nombre del campo es diferente al nombre del atributo
 	@Temporal(TemporalType.DATE)//convierte el formato Date al formato propio de la base de datos a utilizar
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createAt;
 	
-	@PrePersist
-	public void prePersist() {
-		createAt= new Date();
-	}
 	public Long getId() {
 		return id;
 	}
