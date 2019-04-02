@@ -21,15 +21,19 @@
 					<div class="form-group">
 						<label>Nombre</label> <input class="form-control" type="text"
 							th:field="*{nombre}" />
+							<small class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 					</div>
 					<div class="form-group">
 						<label>Apellido</label> <input class="form-control" type="text" th:field="*{apellido}" />
+						<small class="text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
 					</div>
 					<div class="form-group">
-						<label>Email</label> <input class="form-control" type="email" th:field="*{email}" />
+						<label>Email</label> <input class="form-control" type="text" th:field="*{email}" />
+						<small class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
 					</div>
 					<div class="form-group">
 						<label>Fecha</label> <input class="form-control" type="text" th:field="*{createAt}" />
+						<small class="text-danger" th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small>
 					</div>
 					<input class="btn btn-primary" type="submit" value="Crear Cliente" />
 

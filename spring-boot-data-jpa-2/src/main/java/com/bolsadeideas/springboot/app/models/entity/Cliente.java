@@ -11,7 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 //clase entidad que esta mapeada directamente a la tabla de la base de datos
@@ -26,10 +29,15 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
 	private String nombre;
+	@NotEmpty
 	private String apellido;
+	@NotEmpty
+	@Email
 	private String email;
 	
+	@NotNull
 	@Column(name="create_at")//esta anotacion se pone solo si el nombre del campo es diferente al nombre del atributo
 	@Temporal(TemporalType.DATE)//convierte el formato Date al formato propio de la base de datos a utilizar
 	@DateTimeFormat(pattern="yyyy-MM-dd")
